@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./app/stylesheets/style.css">
+  <title>Audivo</title>
+</head>
+<body>
+  <header class="mainhdr">
+    <a class="logo" href="#">AU<span>DIVO</span></a>
+    <div id="menu" class="hide-for-desktop menu-icon">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="search-icon hide-for-desktop">
+      <img src="images/icons/search.svg" alt="search icon">
+    </div>
+    <div class="mobile-menu hide-for-desktop">
+      <ul class="top-link">
+        <li class="hide-for-desktop lnk songsLink">Music</li>
+        <li class="hide-for-desktop lnk videoLink">Videos</li>
+      </ul>
+      <ul class="lnk ul-link">
+        <li class="hide-for-desktop lnk"> About</li>
+        <li class="hide-for-desktop lnk">Contact Us</li>
+        <li class="hide-for-desktop lnk">Reviews</li>
+      </ul>
+    </div>
+  </header>
+  <main>
+    <section class="side-bar">
+      <div class="categories">
+        <h4 class="active sect music"><span></span><img src="images/icons/music-note-beamed.svg" alt="">Music</h4>
+        <h4 class="sect video"><span></span><img src="images/icons/video-play.svg" alt="">Videos</h4>
+        <h4 class="sect discowr hide-for-desktop"><span></span><img src="images/icons/video-play.svg" alt="">Discover</h4>
+      </div>
+      <h3 class="head">Recently Played</h3>
+      <ul class="songs"></ul>
+      <ul class="video-links">
+        <li><img src="images/icons/list.svg" alt="">Comedy Clips</li>
+        <li><img src="images/icons/list.svg" alt="">Tv Shows</li>
+      </ul>
+      <ul class="aboutUs">
+        <li class="about">About</li>
+        <li class="about">Contact Us</li>
+      </ul>
+    </section>
+    <section class="discover height-music">
+      <nav class="nav-bar">
+        <ul class="links">
+          <li class="on li discovr">Discover</li><!----><li class="about li">About</li><!----><li class="about li">Contact Us</li>
+        </ul>
+        <div class="search-form">
+          <img src="images/icons/search.svg" alt="search icon">
+          <input type="search" id="search-bar" name="search-bar" placeholder="What do you want to listen to?">
+        </div>
+      </nav>
+      <div class="top-container">
+        <div class="playing">
+          <img class="active-img" src="images/background/active.jpg" alt="album cover">
+          <h2 class="activeSongName">Now Playing</h2>
+          <h1 id="title1" class="activeSongName">Faded</h1>
+          <p id="artist1" class="activeArtist">Alan Walker</p>
+        </div>
+        <div class="aboutArtist">
+          <img class="artistIMG" src="images/background/bg3.jpg" alt=""/>
+          <h3>About the Artist</h3>
+          <h5>Artist name</h5>
+          <p>Bio</p>
+        </div>
+      </div>
+      <div class="cards music-arr">
+        <h3>Trending New Hits</h3>
+        <div class="new grid-col-big snaps-inline"></div>
+      </div>
+      <div class="results cards">
+        <h3>Search Results</h3>
+        <p class="text"></p>
+        <div class="search grid-col-big snaps-inline"></div>
+      </div>
+      <div class="cards movie-arr">
+        <h3>Latest Uploads</h3>
+        <div class="video-sect new grid-col-big snaps-inline"></div>
+      </div>
+      <div class="cards top-movies-arr">
+        <h3>Most Watched Videos</h3>
+        <div class="top-video-sect new grid-col-big snaps-inline"></div>
+      </div>
+      <div class="cards artist-arr">
+        <h3>Top Artists</h3>
+        <div class="new grid-col-small snaps-inline"></div>
+      </div>
+    </section>
+    <section class="artiste-details">
+      <div class="artist-id">
+        <img class="artist-img" src="" alt="">
+        <div class="details">
+          <h3 class="artistName"></h3>
+        </div>
+        <img class="exit-icon" src="images/icons/x-lg.svg" alt="">
+      </div>
+      <div class="artist-songs"><ul class="artistOnlySongs"></ul></div>
+    </section>
+    <section class="master-play">
+      <div class="wave">
+        <span class="wave1"></span><span class="wave1"></span><span class="wave1"></span><span class="wave1"></span><span class="wave1"></span><span class="wave1"></span><span class="wave1"></span>
+      </div>
+      <img id="track_image" src="" alt="cover image">
+      <div class="details">
+        <h5 id="title"></h5>
+        <p id="artist"></p>
+      </div>
+      <div class="icons">
+        <img id="prev" onclick="previous_song()" src="images/icons/skip-backward-fill.svg" alt="skip backward icon">
+        <img id="play" class="playBtn" src="images/icons/play-fill.svg" alt="play icon">
+        <img id="next" src="images/icons/skip-forward-fill.svg" alt="skip forward icon">
+      </div>
+      <span id="current-start" class="currentStart">0:00</span>
+      <div class="bar">
+        <input type="range" id="seek" min="0" value="0" max="100">
+        <div class="bar2" id="bar2"></div>
+        <div class="dot"></div>
+      </div>
+      <span id="current-end" class="currentEnd">0:00</span>
+      <div class="vol">
+        <img id="vol-icon" src="images/icons/volume-down.svg" alt="volume down icon">
+        <input type="range" id="vol" min="0" value="0" max="100">
+        <div class="vol-bar"></div>
+        <div class="dot" id="vol-dot"></div>
+      </div>
+    </section>
+    <section class="about-section reg-heit">
+      <div class="first card"></div>
+      <div class="second card"></div>
+      <div class="third card"></div>
+      <div class="details">
+        <h3 class="norm-heading">Tuneflix</h3>
+        <h3 class="team-heading hiding">The Team</h3>
+        <p class="parag">TuneFlix is an online web application for music and video streaming, that eliminates the stress of visiting different applications for music or video streaming. With a sleek and user-friendly interface, it offers a wide range of features and content, making it the go-to platform for music and video enthusiasts.</p>
+        <p class="paragh hiding">TuneFlix aims to create a harmonious and engaging environment for music and video enthusiasts, fostering a sense of community and connection among its users. Whether you're a music aficionado or a cinephile, TuneFlix has something for everyone, making it the ultimate destination for online music and video streaming. join us today and experience the world of TuneFlix!</p>
+        <p class="paragraph hiding">1. Joy Oghenerukewve Notie<br>2. Oguoma Elvis<br>3. Jesse Okunogbe<br>4. Shelynna Adjana<br><br> Tuneflix was inspired and developed by these great minds to provide users with a seamless and immersive music and video streaming experience.</p>
+        <button class="contact">Contact Us</button>
+      </div>
+      <div class="contact-sect reg-heit">
+        <div class="frontend">
+          <div class="devA">
+            <img src="" alt="">
+            <h3>Elvis Oguoma</h3>
+          </div>
+      </div>
+    </section>
+    <span class="overlay"></span>
+    <img class="exit-con" src="images/icons/x-lg.svg" alt="">
+    <div  id="vid" class="container active-video">
+      <iframe id="vid" class="video-screen" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+  </main>
+  <script type="module" src="app/javaScript/script.js"></script>
+</body>
+</html>
