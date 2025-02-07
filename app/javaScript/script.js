@@ -1,4 +1,4 @@
-import {hitsData, audioData, latestUploadsData, mostWatchedVideoData} from './objects.js';
+import {hitsData, audioData, artistData, latestUploadsData, mostWatchedVideoData} from './objects.js';
 
 //All the html elements assigned to variables
 /* eslint-disable no-unused-vars */
@@ -9,6 +9,8 @@ music_cards = document.querySelector(".music-arr"),
 movie_cards = document.querySelector(".movie-arr"),
 nav = document.querySelector(".nav-bar"),
 top_movie_cards = document.querySelector(".top-movies-arr"),
+//rectgle = document.querySelectorAll(".video-height"),
+rectt = document.querySelectorAll(".video-height"),
 top_container = document.querySelector(".top-container"),
 artist_cards = document.querySelector(".artist-arr");
 
@@ -102,8 +104,9 @@ let disc = document.getElementById("vid");
 discoverBtn.onclick = ()=> {
   aboutSection.classList.remove("in-view");
   aboutSection.classList.add("reg-heit");
-  discover.style.background = "#010812";
-  side_bar.style.background = "#0b101c";
+  discover.style.background = "none";
+  side_bar.style.background = "none";
+
 
   master_play.style.display = "flex";
   waves.style.display = "flex";
@@ -176,6 +179,17 @@ sectionB.forEach((sect) => {
   });
 });
 
+const activateHide=()=>{
+  movie_cards.style.display = "none";
+  top_movie_cards.style.display = "none";
+
+  /*rectt.forEach((e)=>{
+    e.classList.add("hidden");
+    console.log("done");
+  });*/
+
+}
+
 //Showing only Music related interface data
 music.onclick=() =>{
   aboutSection.classList.remove("in-view");
@@ -213,9 +227,9 @@ music.onclick=() =>{
   top_movie_cards.style.filter = "blur(0)";
   artist_cards.style.filter = "blur(0)";
 
+  activateHide();
+  //movie_cards.style.display = "none";
   //top_movie_cards.style.display = "none";
-  top_movie_cards.classList.add("hidden");
-  movie_cards.style.display = "none";
   video_links.style.display = "none";
   aboutUs.style.display = "none";
   discover.style.justifyContent = "flex-start";
@@ -366,7 +380,7 @@ function displayNewReleasesItem(newsongItems) {
         <img id="${item.song_id}" class="icon" src="images/icons/video-play.svg" alt="play icon">
         <img class="cover-img" src=${item.song_image}  alt="">
         <h5  class="h5"  id="${item.song_name}">${item.song_name}</h5>
-        <p class="item-text">${item.song_info}</p>
+        <p class="item-text">${item.artist_name}</p>
       </article>`;
   });
   displaySongs = displaySongs.join("");
@@ -377,7 +391,7 @@ function displayNewReleasesItem(newsongItems) {
 function displayArtistItem(artistItems) {
   let displayArtists = artistItems.map((item) => {
     return `<article class="release-cover circle">
-      <img id="${item.artist_id}"  class="artist-img" src="${item.artist_image}" alt="">
+      <img id="${item.artist_id}" class="artist-img" src="${item.artist_image}" alt="">
     </article>`;
   });
   displayArtists = displayArtists.join("");
@@ -404,7 +418,7 @@ function displaySidebarSongs(sideItems) {
 function displayArtistSongs(sideItems) {
   let displaySideSongs = sideItems.map((item) => {
     return `<li class="son songListItem" id="${item.song_id}">
-      <img src="${item.artist_image}" alt="cover image">
+      <img src="${item.song_image}" alt="cover image">
       <div class="song-details">
         <h5>${item.song_name}</h5>
         <p>${item.artist_name}</p>
@@ -475,7 +489,7 @@ window.addEventListener("DOMContentLoaded", () => {
       track.play();
       wave.classList.add("active2");
       track_image.src = audioData[point].song_image;
-      active_image.src = audioData[point].song_image2;
+      active_image.src = audioData[point].song_image;
       about_image.style.background = "url" + (audioData[point].song_image2);
       artist.innerHTML = artist1.innerHTML = audioData[point].artist_name;
       title.innerHTML = title1.innerHTML = audioData[point].song_name;
@@ -555,7 +569,7 @@ window.addEventListener("DOMContentLoaded", () => {
         track_image.src = hitsData[indix].song_image;
         artist.innerHTML = hitsData[indix].artist_name;
         title.innerHTML = hitsData[indix].song_name;
-        active_image.src = hitsData[indix].song_image2;
+        active_image.src = hitsData[indix].song_image;
         about_image.style.background = "url" + (hitsData[indix].song_image2);
         title.innerHTML = title1.innerHTML = hitsData[indix].song_name;
         artistIMG.src = hitsData[indix].about_image;
@@ -572,7 +586,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   //Artist display section
-  displayArtistItem(audioData);
+  displayArtistItem(artistData);
   //Individual artist display (Popular Artist Selection setup)
   let inx = 0;
   Array.from(document.getElementsByClassName("circle")).forEach((element)=>{
@@ -587,13 +601,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     element.addEventListener("click", (e) => {
       inx = e.target.id;
-      artistImage.src = audioData[inx-1].artist_image;
-      artistName.innerHTML = audioData[inx-1].artist_name;
+      artistImage.src = artistData[inx-1].artist_image;
+      artistName.innerHTML = artistData[inx-1].artist_name;
       discover.style.display = "none";
       artist_details.style.display = "block";
 
-      const artist1Songs = songsByArtist[audioData[inx-1].artist_name];
-      displayArtistSongs(artist1Songs);
+      const artistSongs = songsByArtist[audioData[inx-1].artist_name];
+      displayArtistSongs(artistSongs);
+      console.log(artistSongs)
 
       //Individual music play button setup (Artist selected music section)
       let inix = 0;

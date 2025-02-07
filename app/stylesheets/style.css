@@ -284,7 +284,7 @@ Desktop hide setup
     display: flex;
   }
   .master-play .icons {
-    margin: 0 20px 0 40px;
+    margin: 0 2dvw;
   }
   .master-play span {
     display: block;
@@ -582,9 +582,10 @@ main .master-play {
   width: 100%;
   background: linear-gradient(transparent, black, black);
   display: flex;
+  justify-content: space-evenly;
   align-items: center;
   gap: 12px;
-  padding: 0 10px;
+  padding: 0 20px;
   height: 10%;
   z-index: 3;
 }
@@ -616,7 +617,8 @@ main .master-play img {
   height: 35px;
 }
 main .master-play .details h5 {
-  width: 100px;
+  width: -moz-fit-content;
+  width: fit-content;
   font-size: 13px;
   margin-left: 15px;
   line-height: 15px;
@@ -911,17 +913,20 @@ main .discover .top-container .playing h1 {
   font-size: 26px;
   font-weight: 100;
   margin-bottom: 1dvh;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5607843137);
 }
 main .discover .top-container .playing h2 {
   position: relative;
   font-size: 18px;
   font-weight: 100;
   margin-bottom: 3dvh;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5607843137);
 }
 main .discover .top-container .playing p {
   position: relative;
   font-size: 10px;
   font-weight: 100;
+  text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5607843137);
 }
 main .discover .cards, main .discover .results {
   position: relative;

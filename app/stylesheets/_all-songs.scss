@@ -285,9 +285,10 @@ main {
     width: 100%;
     background: linear-gradient(transparent, black, black);
     display: flex;
+    justify-content: space-evenly;
     align-items: center;
     gap: 12px;
-    padding: 0 10px;
+    padding: 0 20px;
     height: 10%;
     z-index: 3;
 
@@ -327,7 +328,7 @@ main {
     .details {
 
       h5 {
-        width: 100px;
+        width: fit-content;
         font-size: 13px;
         margin-left: 15px;
         line-height: 15px;
