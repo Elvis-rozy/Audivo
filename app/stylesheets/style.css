@@ -629,7 +629,7 @@ main .side-bar .songs li img {
   margin-left: 20px;
 }
 main .side-bar .songs li .song-details h5 {
-  color: white;
+  color: var(--live);
   font-size: 2dvh;
   font-weight: 700;
   margin-left: 2dvh;
