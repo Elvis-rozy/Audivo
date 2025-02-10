@@ -96,6 +96,7 @@ Desktop hide setup
       .categories {
         flex-direction: row;
         background: linear-gradient(#070a11, black, black);
+        justify-content: space-evenly;
         position: fixed;
         bottom: 0;
         margin-bottom: 0;
@@ -391,6 +392,7 @@ Desktop hide setup
     .categories {
       flex-direction: column;
       margin-bottom: 30px;
+      padding-left: 20px;
       gap: 10px;
 
       .active img {

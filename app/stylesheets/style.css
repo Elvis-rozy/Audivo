@@ -213,6 +213,7 @@ Desktop hide setup
   main .side-bar .categories {
     flex-direction: row;
     background: linear-gradient(#070a11, black, black);
+    justify-content: space-evenly;
     position: fixed;
     bottom: 0;
     margin-bottom: 0;
@@ -432,6 +433,7 @@ Desktop hide setup
   .side-bar .categories {
     flex-direction: column;
     margin-bottom: 30px;
+    padding-left: 20px;
     gap: 10px;
   }
   .side-bar .categories .active img {
@@ -550,7 +552,6 @@ main .height-music {
   height: 90%;
 }
 main .side-bar .categories {
-  padding-left: 20px;
   display: flex;
 }
 main .side-bar .categories .active {
@@ -630,6 +631,7 @@ main .side-bar .songs li img {
 main .side-bar .songs li .song-details h5 {
   color: white;
   font-size: 2dvh;
+  font-weight: 700;
   margin-left: 2dvh;
 }
 main .side-bar .songs li .song-details p {
@@ -1093,7 +1095,7 @@ main .discover .top-container .playing img {
 main .discover .top-container .playing h1 {
   position: relative;
   font-size: 26px;
-  font-weight: 100;
+  font-weight: 700;
   margin-bottom: 1dvh;
   text-shadow: -1px 1px 2px rgba(0, 0, 0, 0.5607843137);
 }
@@ -1114,7 +1116,7 @@ main .discover .cards, main .discover .results {
   position: relative;
 }
 main .discover .cards h3, main .discover .results h3 {
-  font-weight: 100;
+  font-weight: 700;
   font-size: 16px;
 }
 main .discover .cards .search, main .discover .results .search {

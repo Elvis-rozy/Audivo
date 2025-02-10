@@ -17,7 +17,6 @@ main {
   .side-bar {
 
     .categories {
-      padding-left: 20px;
       display: flex;
 
       .active {
@@ -114,6 +113,7 @@ main {
           h5 {
             color: white;
             font-size: 2dvh;
+            font-weight: 700;
             margin-left: 2dvh;
           }
 
