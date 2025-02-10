@@ -95,7 +95,7 @@ Desktop hide setup
 
       .categories {
         flex-direction: row;
-
+        background: linear-gradient(#070a11, black, black);
         position: fixed;
         bottom: 0;
         margin-bottom: 0;
@@ -144,7 +144,7 @@ Desktop hide setup
           top: 8px;
         }
 
-        #search-bar {
+        #search-bar2 {
           min-width: 100%;
           height: 100%;
           border-radius: 5px;
@@ -172,9 +172,8 @@ Desktop hide setup
       }
 
       .release-cover .video-size {
-	      height: 20vh;
+	      height: 18vh;
       }
-
     }
 
     .discover-section, .discowr, .vido, .musc {

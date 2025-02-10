@@ -473,7 +473,7 @@ window.addEventListener("DOMContentLoaded", () => {
       wave.classList.add("active2");
       track_image.src = audioData[point].song_image;
       active_image.src = audioData[point].song_image;
-      about_image.style.background = "url" + (audioData[point].song_image2);
+      about_image.style.background = "url" + (audioData[point].song_image);
       artist.innerHTML = artist1.innerHTML = audioData[point].artist_name;
       title.innerHTML = title1.innerHTML = audioData[point].song_name;
       artistIMG.src = audioData[point].about_image;
@@ -552,10 +552,9 @@ window.addEventListener("DOMContentLoaded", () => {
         track.play();
         wave.classList.add("active2");
         track_image.src = hitsData[indix].song_image;
-        artist.innerHTML = hitsData[indix].artist_name;
-        title.innerHTML = hitsData[indix].song_name;
+        artist.innerHTML = artist1.innerHTML = hitsData[indix].artist_name;
         active_image.src = hitsData[indix].song_image;
-        about_image.style.background = "url" + (hitsData[indix].song_image2);
+        about_image.style.background = "url" + (hitsData[indix].song_image);
         title.innerHTML = title1.innerHTML = hitsData[indix].song_name;
         artistIMG.src = hitsData[indix].about_image;
 
@@ -604,8 +603,10 @@ window.addEventListener("DOMContentLoaded", () => {
           track.play();
           wave.classList.add("active2");
           track_image.src = audioData[inix].song_image;
-          artist.innerHTML = audioData[inix].artist_name;
-          title.innerHTML = audioData[inix].song_name;
+          artist.innerHTML = artist1.innerHTML = audioData[inix].artist_name;
+          title.innerHTML = title1.innerHTML = audioData[inix].song_name;  
+          active_image.src = audioData[inix].song_image;
+          artistIMG.src = audioData[inix].about_image;
         });
       });
     });

@@ -212,6 +212,7 @@ Desktop hide setup
   }
   main .side-bar .categories {
     flex-direction: row;
+    background: linear-gradient(#070a11, black, black);
     position: fixed;
     bottom: 0;
     margin-bottom: 0;
@@ -253,7 +254,7 @@ Desktop hide setup
     left: 10px;
     top: 8px;
   }
-  main .discover .search-form2 #search-bar {
+  main .discover .search-form2 #search-bar2 {
     min-width: 100%;
     height: 100%;
     border-radius: 5px;
@@ -274,7 +275,7 @@ Desktop hide setup
     height: 30vh;
   }
   main .discover .release-cover .video-size {
-    height: 20vh;
+    height: 18vh;
   }
   main .discover-section, main .discowr, main .vido, main .musc {
     display: flex;
@@ -627,7 +628,8 @@ main .side-bar .songs li img {
   margin-left: 20px;
 }
 main .side-bar .songs li .song-details h5 {
-  font-size: 1.6dvh;
+  color: white;
+  font-size: 2dvh;
   margin-left: 2dvh;
 }
 main .side-bar .songs li .song-details p {
@@ -1246,7 +1248,7 @@ main .discover .cards .new .release-cover .artist-img, main .discover .results .
   height: 100%;
 }
 main .discover .cards .new .release-cover h5, main .discover .results .new .release-cover h5 {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 100;
 }
 main .discover .cards .new .release-cover .h5, main .discover .results .new .release-cover .h5 {
@@ -1701,7 +1703,7 @@ body {
   left: 10px;
   top: 8px;
 }
-.search-form #search-bar, .search-form2 #search-bar {
+.search-form #search-bar, .search-form #search-bar2, .search-form2 #search-bar, .search-form2 #search-bar2 {
   background: rgba(184, 184, 184, 0.1);
   color: var(--cta);
   min-width: 42dvw;
