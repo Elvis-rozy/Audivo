@@ -3,7 +3,6 @@ main .discover {
   gap: 2vh;
 
   .top-container {
-    height: 42%;
     display: flex;
     gap: 2%;
 
@@ -15,7 +14,6 @@ main .discover {
 
     .aboutArtist {
       flex-direction: column;
-      width: 25%;
       background: linear-gradient(black, transparent, #ff000078);
       overflow: hidden;
       
@@ -34,7 +32,6 @@ main .discover {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-left: 20px;
       width: 70%;
   
       img {
@@ -74,30 +71,37 @@ main .discover {
     h3 {
       font-weight: 100;
       font-size: 16px;
-      margin-bottom: 10px;
     }
 
     .search {
       display: flex;
       flex-wrap: wrap;
+      overflow: auto;
+      width: 100.4%;
 
       .video-height {
         height: 38vh;
       }
 
       .release-cover {
-        //background: #02050a;
         overflow: hidden;
         position: relative;
         cursor: pointer;
-        width: 150px;
+        width: 100px;
+        height: fit-content;
 
-        &:hover~.cover-img {
-          transform: scale(1.3);
-        }
-
-        &:hover .ico, &:hover .vidplay, &:hover .topvidplay {
-          opacity: 1;
+        &:hover {
+          background: black;
+          transition: .3s;
+          
+          .cover-img {
+            transition: .3s;
+            transform: scale(1.1);
+          }
+          .ico, .vidplay, .topvidplay {
+            opacity: 1;
+            z-index: 2;
+          }
         }
 
         .ico, .vidplay, .topvidplay {
@@ -111,7 +115,7 @@ main .discover {
 
         .cover-img {
           width: 100%;
-          height: 16vh;
+          height: 12vh;
         }
 
         .video-size {
@@ -175,22 +179,28 @@ main .discover {
         display: none;
       }
 
-      .video-height {
-        height: 37vh;
-      }
 
       .circle {
         width: 8dvh;
       }
 
       .release-cover {
-        //background: #02050a;
         overflow: hidden;
         position: relative;
         cursor: pointer;
 
-        &:hover .icon, &:hover .vidplay, &:hover .topvidplay {
-          opacity: 1;
+        &:hover {
+          background: black;
+          transition: .3s;
+
+          .cover-img {
+            transition: .3s;
+            transform: scale(1.1);
+          }
+          .icon, .vidplay, .topvidplay {
+            opacity: 1;
+            z-index: 2;
+          }
         }
 
         .icon, .vidplay, .topvidplay {
@@ -209,7 +219,6 @@ main .discover {
 
         .video-size {
           width: 100%;
-          height: 25vh;
         }
 
         .artist-img {
@@ -223,12 +232,12 @@ main .discover {
         }
 
         .h5 {
-          margin-left: 5px;
+          margin: 5px;
         }
 
         p {
           color: #b3b4b5;
-          margin: 4px 0 6px 6px;
+          margin: 4px 0 8px 6px;
           font-size: 8px;
           font-weight: 100;
         }
@@ -257,6 +266,21 @@ main .discover {
         }
       }
     }
+
+    .video-sect, .top-video-sect {
+      align-items: center;
+      justify-items: center;
+      padding: 0 15px;
+
+      .video-height {
+
+        &:hover {
+          transform: scale(1.15);
+          border-radius: 10px;
+          border: 1px solid var(--cta2);
+        }
+      }
+    }
   }
 }
 
@@ -270,7 +294,6 @@ main .discover {
 
 .grid-col-small {
   grid-auto-columns: 6.5%;
-  gap: 30px;
   height: 8vh;
 }
 
@@ -293,4 +316,10 @@ main .discover {
 
 .cover-img {
   height: auto;
+}
+
+main, header {
+  visibility: hidden;
+  animation: show 2s linear forwards;
+  animation-delay: 15s;
 }

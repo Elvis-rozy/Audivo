@@ -7,34 +7,25 @@
   <title>Audivo</title>
 </head>
 <body>
+  <section class="background">
+    <span></span>
+    <h1 class="ideo">ideo</h1>
+    <h1 class="udio">udio</h1>
+    <h1 class="udivo">udivo</h1>
+  </section>
   <header class="mainhdr">
     <a class="logo" href="#">AU<span>DIVO</span></a>
-    <div id="menu" class="hide-for-desktop menu-icon">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="search-icon hide-for-desktop">
-      <img src="images/icons/search.svg" alt="search icon">
-    </div>
-    <div class="mobile-menu hide-for-desktop">
-      <ul class="top-link">
-        <li class="hide-for-desktop lnk songsLink">Music</li>
-        <li class="hide-for-desktop lnk videoLink">Videos</li>
-      </ul>
-      <ul class="lnk ul-link">
-        <li class="hide-for-desktop lnk"> About</li>
-        <li class="hide-for-desktop lnk">Contact Us</li>
-        <li class="hide-for-desktop lnk">Reviews</li>
-      </ul>
-    </div>
   </header>
   <main>
     <section class="side-bar">
       <div class="categories">
-        <h4 class="active sect music"><span></span><img src="images/icons/music-note-beamed.svg" alt="">Music</h4>
-        <h4 class="sect video"><span></span><img src="images/icons/video-play.svg" alt="">Videos</h4>
+        <h4 class="active sect music hide-for-mobile"><span></span><img src="images/icons/music-note-beamed.svg" alt="">Music</h4>
+        <h4 class="sect video  hide-for-mobile"><span></span><img src="images/icons/video-play.svg" alt="">Videos</h4>
+        <h4 class="sect musc hide-for-desktop"><span></span><img src="images/icons/music-note-beamed.svg" alt="">Music</h4>
         <h4 class="sect discowr hide-for-desktop"><span></span><img src="images/icons/video-play.svg" alt="">Discover</h4>
+        <h4 class="sect vido hide-for-desktop"><span></span><img src="images/icons/video-play.svg" alt="">Video</h4>
       </div>
-      <h3 class="head">Recently Played</h3>
+      <h3 class="head">Your Library</h3>
       <ul class="songs"></ul>
       <ul class="video-links">
         <li><img src="images/icons/list.svg" alt="">Comedy Clips</li>
@@ -52,9 +43,13 @@
         </ul>
         <div class="search-form">
           <img src="images/icons/search.svg" alt="search icon">
-          <input type="search" id="search-bar" name="search-bar" placeholder="What do you want to listen to?">
+          <input class="search-bar" type="search" id="search-bar" name="search-bar" placeholder="What do you want to listen to?">
         </div>
       </nav>
+      <div class="search-form2 hide-for-desktop">
+        <img src="images/icons/search.svg" alt="search icon">
+        <input class="search-bar" type="search" id="search-bar" name="search-bar" placeholder="What do you want to listen to?">
+      </div>
       <div class="top-container">
         <div class="playing">
           <img class="active-img" src="images/background/active.jpg" alt="album cover">
@@ -134,11 +129,11 @@
       <div class="second card"></div>
       <div class="third card"></div>
       <div class="details">
-        <h3 class="norm-heading">Tuneflix</h3>
-        <h3 class="team-heading hiding">The Team</h3>
-        <p class="parag">TuneFlix is an online web application for music and video streaming, that eliminates the stress of visiting different applications for music or video streaming. With a sleek and user-friendly interface, it offers a wide range of features and content, making it the go-to platform for music and video enthusiasts.</p>
-        <p class="paragh hiding">TuneFlix aims to create a harmonious and engaging environment for music and video enthusiasts, fostering a sense of community and connection among its users. Whether you're a music aficionado or a cinephile, TuneFlix has something for everyone, making it the ultimate destination for online music and video streaming. join us today and experience the world of TuneFlix!</p>
-        <p class="paragraph hiding">1. Joy Oghenerukewve Notie<br>2. Oguoma Elvis<br>3. Jesse Okunogbe<br>4. Shelynna Adjana<br><br> Tuneflix was inspired and developed by these great minds to provide users with a seamless and immersive music and video streaming experience.</p>
+        <h3 class="norm-heading">Audivo</h3>
+        <h3 class="team-heading hiding">The Developer</h3>
+        <p class="parag">Audivo is an online web application for music and video streaming, that eliminates the stress of visiting different applications for music or video streaming. With a sleek and user-friendly interface, it offers a wide range of features and content, making it the go-to platform for music and video enthusiasts.</p>
+        <p class="paragh hiding">Audivo aims to create a harmonious and engaging environment for music and video enthusiasts, fostering a sense of community and connection among its users. Whether you're a music aficionado or a cinephile, Audivo has something for everyone, making it the ultimate destination for online music and video streaming.</p>
+        <p class="paragraph hiding">Elvis Oguoma, the developer behind Audivo was inspired and developed by these great minds to provide users with a seamless and immersive music and video streaming experience.</p>
         <button class="contact">Contact Us</button>
       </div>
       <div class="contact-sect reg-heit">

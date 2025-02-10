@@ -14,6 +14,7 @@ header {
     font-family: dcd;
     
     span {
+      font-size: 1.6dvh;
       color: var(--cta2);
       animation: twilight 5s linear forwards infinite;
       animation-delay: 2.5s;
@@ -28,7 +29,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 95%;
+  width: 98%;
 
   .links {
     display: inline-flex;

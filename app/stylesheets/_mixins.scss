@@ -32,7 +32,7 @@ Desktop hide setup
   main {
     .grid-col-big {
       grid-auto-columns: 40%;
-      gap: 10px;
+      gap: 15px;
     }
   }
 }
@@ -49,6 +49,19 @@ Desktop hide setup
 //Tablet and Mobile Only Setup
 @media (max-width: 950px) {
 
+  .top-container {
+    height: 30%;
+    justify-content: space-between;
+    
+    .playing {
+      padding: 15px;
+    }
+
+    .aboutArtist {
+      width: 28%;
+    }
+  }
+
   header {
     padding: 20px;
     width: 100%;
@@ -60,7 +73,7 @@ Desktop hide setup
       height: 100%;
     }
 
-    .songs .songListItem .song-details .playico, .categories .video {
+    .songs .songListItem .song-details .playico {
       display: none;
     }
 
@@ -68,7 +81,7 @@ Desktop hide setup
       padding-top: 70px;
 
       .songs {
-        height: 75vh;
+        height: 70vh;
 
         li {
           padding: 10px 15px;
@@ -82,22 +95,89 @@ Desktop hide setup
 
       .categories {
         flex-direction: row;
-        margin-bottom: 30px;
-        gap: 40px;
 
-        h4 span{
-          margin-right: 20px;
+        position: fixed;
+        bottom: 0;
+        margin-bottom: 0;
+        gap: 20px;
+        height: 10dvh;
+        align-items: center;
+        padding: 0;
+        width: 100%;
+        z-index: 2;
+
+        img {
+          width: 25px;
+	        margin: 0 0 8px;
+        }
+
+        h4 {
+	        flex-direction: column;
+
+          span{
+            display: none;
+            margin-right: 20px;
+          }
+
+          img {
+            display: flex;
+          }
         }
       }
     }
 
     .discover {
       display: none;
-      padding: 60px 15px 0;
+      padding: 70px 10px 0;
+      gap: 3dvh;
       width: 100%;
+
+      .search-form2 {
+        width: 96%;
+        margin: 0 2%;
+        height: 35px;
+
+        img {
+          position: absolute;
+          width: 16px;
+          left: 10px;
+          top: 8px;
+        }
+
+        #search-bar {
+          min-width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
+
+      .results .search {
+        height: 62dvh;
+      }
+
+      .cards h3 {
+        margin: 0 10px 10px;
+      }
+
+      .grid-col-small {
+        gap: 15dvw;
+      }
+
+      .video-sect, .top-video-sect {
+        height: 35dvh;
+      }
+
+      .video-height {
+        height: 30vh;
+      }
+
+      .release-cover .video-size {
+	      height: 20vh;
+      }
+
     }
 
-    .discover-section, .discowr {
+    .discover-section, .discowr, .vido, .musc {
       display: flex;
     }
 
@@ -157,6 +237,16 @@ Desktop hide setup
   }
 
   .master-play {
+    height: 7%;
+    padding: 0 5px;
+    bottom: 10%;
+
+    .details {
+      h5, p {
+        margin-left: 0;
+      }
+    }
+
     .icons {
       margin: 0 10px;
 
@@ -177,6 +267,18 @@ Desktop hide setup
 
 //Desktop Only Setup
 @media (min-width: 950px) {
+  .top-container {
+    height: 42%;
+
+    .playing {
+      padding: 0 0 0 20px;
+    }
+
+    .aboutArtist {
+      width: 26%;
+    }
+  }
+
   main {
     .grid-col-big {
       grid-auto-columns: 14%;
@@ -241,7 +343,31 @@ Desktop hide setup
       display: flex;
       padding: 20px 0 10px 30px;
       width: 77%;
+
+      .results .search {
+        height: 75dvh;
+      }
+
+      .cards h3 {
+        margin: 0 0 10px 0;
+      }
+
+      .video-sect, .top-video-sect {
+        height: 43dvh;
+      }
+
+      .video-height {
+        height: 37vh;
+      }
+
+      .release-cover .video-size {
+	      height: 25vh;
+      }
     }
+  }
+
+  .grid-col-small {
+    gap: 25px;
   }
 
   header {
@@ -268,12 +394,21 @@ Desktop hide setup
       margin-bottom: 30px;
       gap: 10px;
 
-      h4 span{
-        margin-right: 35px;
+      .active img {
+        margin: 0 20px 0 0;
       }
 
-      .video {
-        display:flex;
+      h4 {
+        span{
+          margin-right: 35px;
+        }
+        img {
+          display: none;
+        }
+      }
+
+      .music, .video {
+        display: flex;
       }
     }
 
@@ -294,6 +429,17 @@ Desktop hide setup
   }
 
   .master-play {
+    padding: 0 20px;
+    border-radius: 5px;
+    height: 9%;
+    bottom: 0;
+
+    .details {
+      h5, p {
+        margin-left: 15px;
+      }
+    }
+
     .wave {
       display: flex;
     }

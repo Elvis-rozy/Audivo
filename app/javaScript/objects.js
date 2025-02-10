@@ -515,7 +515,7 @@ const latestUploadsData = [
   },
   {
     video_name: "Urameshi yusuke vs toguro",
-    video_image: "https://lh3.googleusercontent.com/blogger_img_proxy/AEn0k_s7gPE2AlyzDO9wRnykMa0a9YeS_yQFd8_SVH5e1wWGc4MiARr-pkdGIoqvGsYRmgnDu09KbM1Zs_Xnu3KU4Ab2ofxIA2E8jGPyfNV7srStg-de4uFJuc50KC8Bc5ArQb4StZ90twFH8u0u93U=w919-h516-p-k-no-nu",
+    video_image: "images/covers/video/toguro.jpg",
     video_year: "2023",
     video_group: "HD",
     video_duration: "21min",

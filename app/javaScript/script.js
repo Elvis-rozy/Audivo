@@ -2,15 +2,12 @@ import {hitsData, audioData, artistData, latestUploadsData, mostWatchedVideoData
 
 //All the html elements assigned to variables
 /* eslint-disable no-unused-vars */
-const button = document.querySelectorAll(".button"),
-video = document.querySelector(".video"),
+const video = document.querySelector(".video"),
 about_artist = document.querySelector(".aboutArtist"),
 music_cards = document.querySelector(".music-arr"),
 movie_cards = document.querySelector(".movie-arr"),
 nav = document.querySelector(".nav-bar"),
 top_movie_cards = document.querySelector(".top-movies-arr"),
-//rectgle = document.querySelectorAll(".video-height"),
-rectt = document.querySelectorAll(".video-height"),
 top_container = document.querySelector(".top-container"),
 artist_cards = document.querySelector(".artist-arr");
 
@@ -28,12 +25,11 @@ const side_bar= document.querySelector(".side-bar");
 const discover= document.querySelector(".discover");
 
 const activeSongName= document.querySelector(".activeSongName"),
-activeSongDesc= document.querySelector(".activeSongDesc");
-
-const musicSection = document.querySelector(".new"),
+musicSection = document.querySelector(".new"),
 searchResultSection = document.querySelector(".results"),
 searchSection = document.querySelector(".search"),
-textNote = document.querySelector(".text"),
+search_form = document.querySelector(".search-form"),
+search_form2 = document.querySelector(".search-form2"),
 artistSection = document.querySelector(".grid-col-small"),
 sideBarSection = document.querySelector(".songs"),
 videoSection = document.querySelector(".active-video"),
@@ -54,10 +50,8 @@ icons = document.querySelector(".icons"),
 bar = document.querySelector(".bar"),
 volume = document.querySelector(".vol");
 
-const artistInfoSection = document.querySelector(".artist-id"),
-artistImage = document.querySelector(".artist-img"),
-artistName = document.querySelector(".artistName"),
-artistInfo = document.querySelector(".artistInfo");
+const artistImage = document.querySelector(".artist-img"),
+artistName = document.querySelector(".artistName");
 
 const paragraph1 = document.querySelector(".parag"),
 paragraph2 = document.querySelector(".paragh"),
@@ -81,8 +75,6 @@ exit_con = document.querySelector(".exit-con");
 let index = 0,
 track = document.createElement("audio"),
 playbtn = document.getElementById("play"),
-icon = document.getElementById("icon"),
-playico = document.getElementById("playico"),
 prev = document.getElementById("prev"),
 next = document.getElementById("next"),
 wave = document.getElementsByClassName("wave")[0];
@@ -98,7 +90,6 @@ vol = document.getElementById("vol"),
 vol_dot = document.getElementById("vol-dot"),
 vol_bar= document.getElementsByClassName("vol-bar")[0];
 
-let disc = document.getElementById("vid");
 
 //DISCOVER link action controls
 discoverBtn.onclick = ()=> {
@@ -106,7 +97,6 @@ discoverBtn.onclick = ()=> {
   aboutSection.classList.add("reg-heit");
   discover.style.background = "none";
   side_bar.style.background = "none";
-
 
   master_play.style.display = "flex";
   waves.style.display = "flex";
@@ -159,7 +149,6 @@ aboutBtn.forEach((btn) => {
     currentEnd.style.display = "none";
     volume.style.display = "none";
 
-    //categories.style.visibility = "hidden";
     sideBarSection.style.visibility = "hidden";
     top_image.style.visibility = "hidden";
   };
@@ -183,10 +172,6 @@ const activateHide=()=>{
   movie_cards.style.display = "none";
   top_movie_cards.style.display = "none";
 
-  /*rectt.forEach((e)=>{
-    e.classList.add("hidden");
-    console.log("done");
-  });*/
 
 }
 
@@ -228,8 +213,6 @@ music.onclick=() =>{
   artist_cards.style.filter = "blur(0)";
 
   activateHide();
-  //movie_cards.style.display = "none";
-  //top_movie_cards.style.display = "none";
   video_links.style.display = "none";
   aboutUs.style.display = "none";
   discover.style.justifyContent = "flex-start";
@@ -366,7 +349,7 @@ function displaySearchItem(songItems) {
         <img id="${item.song_id}" class="ico" src="images/icons/video-play.svg" alt="play icon">
         <img class="cover-img" src=${item.song_image}  alt="">
         <h5 class="h5" id="${item.song_name}">${item.song_name}</h5>
-        <p class="item-text">${item.song_info}</p>
+        <p class="item-text">${item.artist_name}</p>
       </article>`;
   });
   displaySongs = displaySongs.join("");
@@ -499,57 +482,59 @@ window.addEventListener("DOMContentLoaded", () => {
 
   //Search bar Function
   const categories = [ ...new Set(audioData.map((item)=> { return item; })) ];
-  document.getElementById("search-bar").addEventListener("input", (e)=> {
-    searchResultSection.style.display = "block";
-    music_cards.style.display = "none";
-    artist_cards.style.display = "none";
-    top_image.style.display = "none";
-
-    const searchData = e.target.value.toLowerCase();
-    const filterData = categories.filter((item)=> {
-      if (item.song_name.toLocaleLowerCase().includes(searchData)) {
-        return (item.song_name.toLocaleLowerCase().includes(searchData));
-      } else if (item.artist_name.toLocaleLowerCase().includes(searchData)) {
-        return (item.artist_name.toLocaleLowerCase().includes(searchData));
+  //document.getElementById("search-bar").addEventListener("input", (e)=> {
+  document.querySelectorAll(".search-bar").forEach((bar)=>{
+    bar.addEventListener("input", (e)=> {
+      searchResultSection.style.display = "block";
+      music_cards.style.display = "none";
+      artist_cards.style.display = "none";
+      top_container.style.display = "none";
+  
+      const searchData = e.target.value.toLowerCase();
+      const filterData = categories.filter((item)=> {
+        if (item.song_name.toLocaleLowerCase().includes(searchData)) {
+          return (item.song_name.toLocaleLowerCase().includes(searchData));
+        } else if (item.artist_name.toLocaleLowerCase().includes(searchData)) {
+          return (item.artist_name.toLocaleLowerCase().includes(searchData));
+        }
+      });
+      if (searchData.length >= 1){
+        displaySearchItem(filterData);
+      } else if (searchData.length <= 0) {
+        music_cards.style.display = "block";
+        searchResultSection.style.display = "none";
+        artist_cards.style.display = "block";
+        top_container.style.display = "flex";
       }
+      //Individual music play button setup (Search result section)
+      let ind = 0;
+      let curr_playing = false;
+      Array.from(document.getElementsByClassName("ico")).forEach((element)=>{
+        element.addEventListener("click", (e) => {
+          if (curr_playing == false) {
+            ind = e.target.id;
+            e.target.src = "images/icons/pause-fill.svg";
+            playbtn.src = "images/icons/pause-fill.svg";
+            curr_playing = true;
+            track.src = audioData[ind].audio_src;
+            track.play();
+            wave.classList.add("active2");
+            track_image.src = audioData[ind].song_image;
+            active_image.src = audioData[ind].song_image;
+            artist.innerHTML = audioData[ind].artist_name;
+            title.innerHTML = audioData[ind].song_name;
+          } else {
+            e.target.src = "images/icons/play-circle-fill.svg";
+            playbtn.src = "images/icons/play-fill.svg";
+            track.src = audioData[ind].audio_src;
+            curr_playing = false;
+            track.pause();
+            wave.classList.remove("active2");
+          }
+        });
+      });
     });
-    if (searchData.length >= 1){
-      displaySearchItem(filterData);
-    } else if (searchData.length <= 0) {
-      music_cards.style.display = "block";
-      searchResultSection.style.display = "none";
-      artist_cards.style.display = "block";
-      top_image.style.display = "block";
-    }
-  });
-
-  //Individual music play button setup (Search result section)
-  let ind = 0;
-  let curr_playing = false;
-  Array.from(document.getElementsByClassName("ico")).forEach((element)=>{
-    element.addEventListener("click", (e) => {
-      if (curr_playing == false) {
-        ind = e.target.id;
-        e.target.src = "images/icons/pause-fill.svg";
-        playbtn.src = "images/icons/pause-fill.svg";
-        curr_playing = true;
-        track.src = audioData[ind].audio_src;
-        track.play();
-        wave.classList.add("active2");
-        track_image.src = audioData[ind].song_image;
-        active_image.src = audioData[ind].song_image;
-        artist.innerHTML = audioData[ind].artist_name;
-        title.innerHTML = audioData[ind].song_name;
-      } else {
-        e.target.src = "images/icons/play-circle-fill.svg";
-        playbtn.src = "images/icons/play-fill.svg";
-        track.src = audioData[ind].audio_src;
-        curr_playing = false;
-        track.pause();
-        wave.classList.remove("active2");
-      }
-    });
-  });
+  })
 
   // New releases Section
   displayNewReleasesItem(hitsData);
@@ -608,7 +593,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
       const artistSongs = songsByArtist[audioData[inx-1].artist_name];
       displayArtistSongs(artistSongs);
-      console.log(artistSongs)
 
       //Individual music play button setup (Artist selected music section)
       let inix = 0;
@@ -694,61 +678,45 @@ vol.addEventListener("change", () => {
   track.volume = vol_a/100;
 });
 
-/*===Mobile menu setup===*/
-const Bttn = document.querySelector("#menu"),
-navBar = document.querySelector(".mobile-menu"),
-linK = document.querySelector(".lnk");
-
-/*===Menu Icon Open and Close Function===*/
-Bttn.addEventListener("click", () => {
-  //close menu
-  if (Bttn.classList.contains("menu-open")) {
-    Bttn.classList.remove("menu-open");
-    navBar.classList.remove("nav-open");
-  }//Open menu
-  else {
-    Bttn.classList.add("menu-open");
-    navBar.classList.add("nav-open");
-  }
-});
-
 const discoverLink = document.querySelector(".discowr");
 discoverLink.onclick = () => {
   discover.classList.add("discover-section");
-  side_bar.style.display = "none";
+  side_bar.style.height = 0;
+  side_bar.style.padding = 0;
+  songs.style.display = head.style.display = "none";
   nav.style.display = "none";
-  //top_image.style.height = 150+"px";
 
   movie_cards.style.display = "none";
   top_movie_cards.style.display = "none";
   music_cards.style.display = "block";
   artist_cards.style.display = "block";
-  top_image.style.display = "block";
+  top_image.style.display = "flex";
+  top_container.style.display = "flex";
+  master_play.style.display = "flex";
+  search_form2.style.display = "flex";
 
   activeSongName.style.display = "none";
-  activeSongDesc.style.display = "none";
 };
 
-const songsLink = document.querySelector(".songsLink");
+const songsLink = document.querySelector(".musc");
 songsLink.onclick = () => {
-  Bttn.classList.remove("menu-open");
-  navBar.classList.remove("nav-open");
+  side_bar.style.height = "100%";
+  side_bar.style.padding = "70px 0 0 0";
+  songs.style.display = head.style.display = "flex";
   discoverLink.classList.remove("active");
-  music.classList.add("active");
   discover.classList.remove("discover-section");
+  search_form2.style.display = "none";
 
-  songs.style.display = "flex";
   master_play.style.display = "flex";
-  music.style.display = "flex";
-  video.style.display = "none";
   side_bar.style.display = "block";
   nav.style.display = "flex";
   activeSongName.style.display = "flex";
-  activeSongDesc.style.display = "flex";
 };
 
-const video_menu_link = document.querySelector(".videoLink");
+const video_menu_link = document.querySelector(".vido");
 video_menu_link.addEventListener("click", () => {
+  track.pause();
+  playbtn.src = "images/icons/play-fill.svg";
 
   //calling the display and play functions for the top videos
   displayMostWatchedVideoItem(mostWatchedVideoData);
@@ -758,17 +726,18 @@ video_menu_link.addEventListener("click", () => {
   displayLatestUploadsItem(latestUploadsData);
   playLatestUploadsVideo(latestUploadsData);
 
-  Bttn.classList.remove("menu-open");
-  navBar.classList.remove("nav-open");
-
   discover.classList.add("discover-section");
-  side_bar.style.display = "none";
+  side_bar.style.height = 0;
+  side_bar.style.padding = 0;
+  songs.style.display = head.style.display = "none";
+
   music_cards.style.display = "none";
   artist_cards.style.display = "none";
   master_play.style.display = "none";
   top_image.style.display = "none";
   nav.style.display = "none";
-
+  top_container.style.display = "none";
+  search_form2.style.display = "none";
   top_movie_cards.style.display = "block";
   movie_cards.style.display = "block";
   video_links.style.display = "flex";
@@ -778,8 +747,7 @@ video_menu_link.addEventListener("click", () => {
   side_bar.classList.remove("height-music");
   discover.classList.remove("height-music");
 
-  music.style.display = "none";
-  video.style.display = "flex";
+  //music.style.display = "none";
   video.classList.add("active");
   video_links.style.display = "none";
   aboutUs.style.display = "none";
@@ -787,6 +755,7 @@ video_menu_link.addEventListener("click", () => {
   master_play.style.display = "none";
   discover.style.display = "flex";
 });
+
 const mainVideo = document.querySelector(".video-screen");
 const first = document.querySelector(".first"), second = document.querySelector(".second"), third = document.querySelector(".third");
 
