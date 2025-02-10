@@ -521,8 +521,14 @@ window.addEventListener("DOMContentLoaded", () => {
             wave.classList.add("active2");
             track_image.src = audioData[ind].song_image;
             active_image.src = audioData[ind].song_image;
-            artist.innerHTML = audioData[ind].artist_name;
-            title.innerHTML = audioData[ind].song_name;
+            //artist.innerHTML = audioData[ind].artist_name;
+            //title.innerHTML = audioData[ind].song_name;
+
+            artist.innerHTML = artist1.innerHTML = audioData[ind].artist_name;
+            title.innerHTML = title1.innerHTML = audioData[ind].song_name;  
+            active_image.src = audioData[ind].song_image;
+            artistIMG.src = audioData[ind].about_image;
+
           } else {
             e.target.src = "images/icons/play-circle-fill.svg";
             playbtn.src = "images/icons/play-fill.svg";
