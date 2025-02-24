@@ -114,11 +114,16 @@
   }
 }
 @keyframes show {
-  from {
+  0% {
     visibility: hidden;
   }
-  to {
+  10% {
     visibility: visible;
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
 }
 @keyframes intrOff {
@@ -323,6 +328,9 @@ Desktop hide setup
     padding: 0 5px;
     bottom: 10%;
   }
+  .master-play .details {
+    pointer-events: all;
+  }
   .master-play .details h5, .master-play .details p {
     margin-left: 0;
   }
@@ -465,6 +473,9 @@ Desktop hide setup
     border-radius: 5px;
     height: 9%;
     bottom: 0;
+  }
+  .master-play .details {
+    pointer-events: none;
   }
   .master-play .details h5, .master-play .details p {
     margin-left: 15px;
@@ -769,8 +780,12 @@ main .master-play {
   width: 96%;
   justify-content: space-evenly;
   align-items: center;
+  transition: 0.3s;
   gap: 12px;
   z-index: 3;
+}
+main .master-play .exit {
+  display: none;
 }
 main .master-play .wave {
   height: 30px;
@@ -803,6 +818,8 @@ main .master-play .details {
   display: flex;
   flex-direction: column;
   gap: 3px;
+  height: 100%;
+  justify-content: center;
 }
 main .master-play .details h5 {
   width: -moz-fit-content;
@@ -1329,8 +1346,9 @@ main .discover .cards .video-sect .video-height:hover, main .discover .cards .to
 
 main, header {
   visibility: hidden;
+  opacity: 0;
   animation: show 2s linear forwards;
-  animation-delay: 15s;
+  animation-delay: 9.6s;
 }
 
 .overlay {
@@ -1620,9 +1638,9 @@ body {
   height: 100dvh;
   width: 100dvw;
   z-index: 30;
-  animation: intrOff 0.5s linear forwards;
+  animation: intrOff 1s ease-out forwards;
   background: black;
-  animation-delay: 20s;
+  animation-delay: 9s;
 }
 .background span {
   width: 3dvh;
@@ -1631,8 +1649,8 @@ body {
   position: relative;
   overflow: hidden;
   transform: rotateX(180deg);
-  animation: rotate 7s linear forwards;
-  animation-delay: 2s;
+  animation: rotate 3.3s linear forwards;
+  animation-delay: 1.9s;
 }
 .background span::after {
   content: "";
@@ -1662,7 +1680,7 @@ body {
   transition: 0.3s;
   letter-spacing: -26px;
   opacity: 0;
-  animation: spread 4.5s linear forwards;
+  animation: spread 1.5s linear forwards;
   font-family: "BankGothic Lt Bt";
   font-size: 40px;
   position: relative;
@@ -1679,12 +1697,12 @@ body {
   background: black;
 }
 .background .ideo {
-  animation-delay: 4s;
+  animation-delay: 3.3s;
   color: var(--cta2);
 }
 .background .udio {
   color: var(--cta);
-  animation-delay: 9s;
+  animation-delay: 5.5s;
 }
 .background .udivo {
   background: linear-gradient(to right, var(--cta), var(--cta2));
@@ -1692,7 +1710,7 @@ body {
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
-  animation-delay: 14s;
+  animation-delay: 8s;
 }
 
 .search-form, .search-form2 {
@@ -1864,4 +1882,80 @@ button:hover {
 
 .hidden {
   animation: hide 0.4s linear forwards;
+}
+
+#master.full-view {
+  flex-direction: column;
+  justify-content: normal;
+  width: 100%;
+  padding: 0;
+  height: 77%;
+}
+#master.full-view .exit {
+  display: flex;
+  width: 100%;
+  height: 45px;
+  padding: 10px;
+  background: black;
+  position: absolute;
+  top: -7%;
+}
+#master.full-view img {
+  width: 100%;
+  height: auto;
+}
+#master.full-view .details {
+  position: absolute;
+  align-items: center;
+  height: auto;
+  bottom: 26%;
+  gap: 20px;
+}
+#master.full-view .details h5 {
+  font-size: 20px;
+}
+#master.full-view .details p {
+  font-size: 14px;
+}
+#master.full-view .icons {
+  position: absolute;
+  bottom: 5%;
+  width: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#master.full-view .icons img {
+  width: 35px;
+  height: 25px;
+}
+#master.full-view span {
+  display: flex;
+  position: absolute;
+  bottom: 15%;
+  font-size: 13px;
+}
+#master.full-view .currentStart {
+  left: 10%;
+}
+#master.full-view .currentEnd {
+  right: 10%;
+}
+#master.full-view .bar {
+  display: flex;
+  width: 80%;
+  position: absolute;
+  bottom: 20%;
+}
+#master.full-view .vol {
+  display: flex;
+  position: absolute;
+  bottom: 45%;
+  font-size: 13px;
+  right: 10%;
+}
+#master.full-view .vol img {
+  width: 30px;
+  height: 35px;
+  left: -40px;
 }/*# sourceMappingURL=style.css.map */

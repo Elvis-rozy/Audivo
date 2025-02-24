@@ -19,6 +19,7 @@ aboutUs = document.querySelector(".aboutUs");
 const music = document.querySelector(".music"),
 songs = document.querySelector(".songs"),
 top_image= document.querySelector(".playing"),
+songdetails= document.querySelector(".songdetails"),
 master_play= document.querySelector(".master-play");
 
 const side_bar= document.querySelector(".side-bar");
@@ -70,7 +71,8 @@ track_image = document.querySelector("#track_image"),
 active_image = document.querySelector(".active-img"),
 about_image = document.querySelector(".aboutArtist"),
 exit_icon = document.querySelector(".exit-icon"),
-exit_con = document.querySelector(".exit-con");
+exit_con = document.querySelector(".exit-con"),
+exit = document.querySelector(".exit");
 
 let index = 0,
 track = document.createElement("audio"),
@@ -171,8 +173,6 @@ sectionB.forEach((sect) => {
 const activateHide=()=>{
   movie_cards.style.display = "none";
   top_movie_cards.style.display = "none";
-
-
 }
 
 //Showing only Music related interface data
@@ -619,6 +619,15 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+songdetails.addEventListener("click", () => {
+  master_play.classList.add("full-view");
+})
+
+//Popular Artist exit button setup
+exit.addEventListener("click", ()=>{
+  master_play.classList.remove("full-view");
+});
+
 //Popular Artist exit button setup
 exit_icon.addEventListener("click", ()=>{
   discover.style.display = "flex";
@@ -687,6 +696,7 @@ vol.addEventListener("change", () => {
 
 const discoverLink = document.querySelector(".discowr");
 discoverLink.onclick = () => {
+  master_play.classList.remove("full-view");
   discover.classList.add("discover-section");
   side_bar.style.height = 0;
   side_bar.style.padding = 0;
@@ -714,6 +724,7 @@ songsLink.onclick = () => {
   discover.classList.remove("discover-section");
   search_form2.style.display = "none";
 
+  master_play.classList.remove("full-view");
   master_play.style.display = "flex";
   side_bar.style.display = "block";
   nav.style.display = "flex";
@@ -733,6 +744,7 @@ video_menu_link.addEventListener("click", () => {
   displayLatestUploadsItem(latestUploadsData);
   playLatestUploadsVideo(latestUploadsData);
 
+  master_play.classList.remove("full-view");
   discover.classList.add("discover-section");
   side_bar.style.height = 0;
   side_bar.style.padding = 0;

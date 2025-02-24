@@ -12,32 +12,32 @@
 }
 
 @keyframes wave {
-  0% { height: 8px; }
-  50% { height: 15px; }
-  100% { height: 8px; }
+  0% {height: 8px;}
+  50% {height: 15px;}
+  100% {height: 8px;}
 }
 
 @keyframes twilight {
-  0% { color: var(--cta);}
-  50% { color: var(--cta);}
-  55% { color: var(--cta2);}
-  95% { color: var(--cta2);}
-  100% { color: var(--cta);}
+  0% {color: var(--cta);}
+  50% {color: var(--cta);}
+  55% {color: var(--cta2);}
+  95% {color: var(--cta2);}
+  100% {color: var(--cta);}
 }
 
 @keyframes rotate {
-  0%{transform: rotateX(180deg);}
-  20%{transform: rotateX(180deg);}
+  0% {transform: rotateX(180deg);}
+  20% {transform: rotateX(180deg);}
   25% {transform: rotateX(0);}
   90% {transform: rotateX(0);}
   100% {transform: rotateX(180deg);}
 }
 @keyframes grow {
-  from{height: 0;}
+  from {height: 0;}
   to {height: 140%;}
 }
 @keyframes spread {
-  0%{opacity: 0;}
+  0% {opacity: 0;}
   10% {opacity: 0; letter-spacing: -26px;}
   12% {opacity: 1; letter-spacing: -26px;}
   20% {opacity: 1; letter-spacing: -6px;}
@@ -46,8 +46,9 @@
   100% {opacity: 0;}
 }
 @keyframes show {
-  from{visibility: hidden;}
-  to {visibility: visible;}
+  0% {visibility: hidden;}
+  10% {visibility: visible; opacity: 0;}
+  100% {visibility: visible; opacity: 1;}
 }
 @keyframes intrOff {
   0% {transform: scale(1);}

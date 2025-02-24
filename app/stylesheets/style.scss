@@ -47,9 +47,9 @@ body {
   height: 100dvh;
   width: 100dvw;
   z-index: 30;
-  animation: intrOff .5s linear forwards;
+  animation: intrOff 1s ease-out forwards;
   background: black;
-  animation-delay: 20s;
+  animation-delay: 9s;
   
   span {
     width: 3dvh;
@@ -58,8 +58,8 @@ body {
     position: relative;
     overflow: hidden;
     transform: rotateX(180deg);
-    animation: rotate 7s linear forwards;
-    animation-delay: 2s;
+    animation: rotate 3.3s linear forwards;
+    animation-delay: 1.9s;
   
     &::after {
       content: "";
@@ -90,7 +90,7 @@ body {
     transition: .3s;
     letter-spacing: -26px;
     opacity: 0;
-    animation: spread 4.5s linear forwards;
+    animation: spread 1.5s linear forwards;
     font-family: 'BankGothic Lt Bt';
     font-size: 40px;
     position: relative;
@@ -108,19 +108,19 @@ body {
     }
   }
   .ideo {
-    animation-delay: 4s;
+    animation-delay: 3.3s;
     color: var(--cta2);
   }
   .udio {
     color: var(--cta);
-    animation-delay: 9s;
+    animation-delay: 5.5s;
   }
   .udivo {
     background: linear-gradient(to right, var(--cta), var(--cta2));
     padding-right: 5px;
     background-clip: text;
     color: transparent;
-    animation-delay: 14s;
+    animation-delay: 8s;
   }
 }
 
@@ -316,4 +316,93 @@ button {
 
 .hidden {
   animation: hide .4s linear forwards;
+}
+
+#master.full-view {
+  flex-direction: column;
+  justify-content: normal;
+  width: 100%;
+  padding: 0;
+  height: 77%;
+
+  .exit {
+    display: flex;
+    width: 100%;
+    height: 45px;
+    padding: 10px;
+    background: black;
+    position: absolute;
+    top: -7%;
+  }  
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  .details {
+    position: absolute;
+    align-items: center;
+    height: auto;
+    bottom: 26%;
+    gap: 20px;
+
+    h5 {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .icons {
+    position: absolute;
+    bottom: 5%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      width: 35px;
+      height: 25px;
+    }
+  }
+
+  span {
+    display: flex;
+    position: absolute;
+    bottom: 15%;
+    font-size: 13px;
+  }
+
+  .currentStart {
+    left: 10%;
+  }
+
+  .currentEnd {
+    right: 10%;
+  }
+
+  .bar {
+    display: flex;
+    width: 80%;
+    position: absolute;
+    bottom: 20%;
+  }
+
+  .vol {
+    display: flex;
+    position: absolute;
+    bottom: 45%;
+    font-size: 13px;
+    right: 10%;
+
+    img {
+      width: 30px;
+      height: 35px;
+      left: -40px;
+    }
+  }
 }

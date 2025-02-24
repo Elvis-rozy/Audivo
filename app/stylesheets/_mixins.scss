@@ -242,6 +242,8 @@ Desktop hide setup
     bottom: 10%;
 
     .details {
+      pointer-events: all;
+
       h5, p {
         margin-left: 0;
       }
@@ -436,6 +438,8 @@ Desktop hide setup
     bottom: 0;
 
     .details {
+      pointer-events: none;
+
       h5, p {
         margin-left: 15px;
       }

@@ -320,6 +320,7 @@ main .discover {
 
 main, header {
   visibility: hidden;
+  opacity: 0;
   animation: show 2s linear forwards;
-  animation-delay: 15s;
+  animation-delay: 9.6s;
 }
