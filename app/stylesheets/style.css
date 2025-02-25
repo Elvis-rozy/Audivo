@@ -288,11 +288,10 @@ Desktop hide setup
   }
   main .artiste-details {
     width: 100%;
-    padding: 80px 0 0 20px;
+    overflow: hidden;
   }
   main .artiste-details .artist-id {
     gap: 20px;
-    height: 10vh;
   }
   main .artiste-details .artist-id .details {
     gap: 5px;
@@ -363,11 +362,9 @@ Desktop hide setup
   }
   main .artiste-details {
     width: 75%;
-    padding: 25px 0 10px 30px;
   }
   main .artiste-details .artist-id {
     gap: 50px;
-    height: 20vh;
   }
   main .artiste-details .artist-id .details {
     gap: 20px;
@@ -708,6 +705,7 @@ main .discover {
 main .artiste-details {
   flex-direction: column;
   z-index: 3;
+  overflow: hidden;
   height: 90%;
   box-shadow: 1px -1px 8px #022983;
   border-radius: 10px 0 0 10px;
@@ -716,20 +714,28 @@ main .artiste-details .artist-id {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  height: 20vh;
+  position: relative;
+  justify-content: center;
 }
 main .artiste-details .artist-id .artist-img {
-  height: 100%;
-  width: 20%;
-  border-radius: 20px;
+  height: 90dvh;
+  width: auto;
+  position: absolute;
+  top: 0;
 }
 main .artiste-details .artist-id .details {
+  position: relative;
+  height: 100%;
+  justify-content: center;
   display: flex;
   flex-direction: column;
   width: 50%;
 }
-main .artiste-details .artist-id .details p {
-  color: #4c5767;
-  font-size: 13px;
+main .artiste-details .artist-id .details h3 {
+  color: #ffffff;
+  text-shadow: -2px 7px 3px black;
+  font-size: 20px;
 }
 main .artiste-details .artist-id .exit-icon {
   position: absolute;
@@ -746,6 +752,7 @@ main .artiste-details .artist-songs {
   position: fixed;
   overflow: auto;
   height: 60vh;
+  bottom: 18%;
 }
 main .artiste-details .artist-songs li {
   position: relative;
@@ -753,6 +760,7 @@ main .artiste-details .artist-songs li {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  background: rgba(0, 0, 0, 0.3490196078);
   cursor: pointer;
   transition: 0.3s linear;
 }
@@ -1901,14 +1909,14 @@ button:hover {
   top: -7%;
 }
 #master.full-view img {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 55%;
 }
 #master.full-view .details {
   position: absolute;
   align-items: center;
   height: auto;
-  bottom: 26%;
+  bottom: 25%;
   gap: 20px;
 }
 #master.full-view .details h5 {
@@ -1950,7 +1958,7 @@ button:hover {
 #master.full-view .vol {
   display: flex;
   position: absolute;
-  bottom: 45%;
+  bottom: 40%;
   font-size: 13px;
   right: 10%;
 }

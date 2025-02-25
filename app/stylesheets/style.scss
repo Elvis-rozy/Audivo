@@ -336,15 +336,15 @@ button {
   }  
 
   img {
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 55%;
   }
 
   .details {
     position: absolute;
     align-items: center;
     height: auto;
-    bottom: 26%;
+    bottom: 25%;
     gap: 20px;
 
     h5 {
@@ -395,7 +395,7 @@ button {
   .vol {
     display: flex;
     position: absolute;
-    bottom: 45%;
+    bottom: 40%;
     font-size: 13px;
     right: 10%;
 

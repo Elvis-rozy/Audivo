@@ -195,6 +195,7 @@ main {
   .artiste-details {
     flex-direction: column;
     z-index: 3;
+    overflow: hidden;
     height: 90%;
     box-shadow: 1px -1px 8px #022983;
     border-radius: 10px 0 0 10px;
@@ -203,22 +204,35 @@ main {
       display: flex;
       align-items: center;
       margin-bottom: 20px;
+      height: 20vh;
+      position: relative;
+      justify-content: center;
 
       .artist-img {
-        height: 100%;
-        width: 20%;
-        border-radius: 20px;
+        height: 90dvh;
+        width: auto;
+        position: absolute;
+        top: 0;
       }
 
       .details {
+        position: relative;
+        height: 100%;
+        justify-content: center;
         display: flex;
         flex-direction: column;
         width: 50%;
 
-        p {
-          color: #4c5767;
-          font-size: 13px;
+        h3 {
+          color: #ffffff;
+          text-shadow: -2px 7px 3px black;
+          font-size: 20px;
         }
+
+        //p {
+        //  color: #4c5767;
+        //  font-size: 13px;
+        //}
       }
 
       .exit-icon {
@@ -239,6 +253,7 @@ main {
       position: fixed;
       overflow: auto;
       height: 60vh;
+      bottom: 18%;
 
       li {
         position: relative;
@@ -246,6 +261,7 @@ main {
         display: flex;
         align-items: center;
         margin-bottom: 10px;
+        background: #00000059;
         cursor: pointer;
         transition: .3s linear;
 
