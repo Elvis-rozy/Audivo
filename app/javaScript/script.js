@@ -2,96 +2,35 @@ import {hitsData, audioData, artistData, latestUploadsData, mostWatchedVideoData
 
 //All the html elements assigned to variables
 /* eslint-disable no-unused-vars */
-const video = document.querySelector(".video"),
-about_artist = document.querySelector(".aboutArtist"),
-music_cards = document.querySelector(".music-arr"),
-movie_cards = document.querySelector(".movie-arr"),
-nav = document.querySelector(".nav-bar"),
-top_movie_cards = document.querySelector(".top-movies-arr"),
-top_container = document.querySelector(".top-container"),
-artist_cards = document.querySelector(".artist-arr");
+const video = document.querySelector(".video"), about_artist = document.querySelector(".aboutArtist"), songs = document.querySelector(".songs"),
+music_cards = document.querySelector(".music-arr"), movie_cards = document.querySelector(".movie-arr"), nav = document.querySelector(".nav-bar"),
+top_movie_cards = document.querySelector(".top-movies-arr"), top_container = document.querySelector(".top-container"), artist_cards = document.querySelector(".artist-arr"),
+movieSection = document.querySelector(".video-sect"), topMovieSection = document.querySelector(".top-video-sect"), video_links = document.querySelector(".video-links"), 
+aboutUs = document.querySelector(".aboutUs"), music = document.querySelector(".music"), top_image= document.querySelector(".playing"),
+songdetails= document.querySelector(".songdetails"), master_play= document.querySelector(".master-play"), side_bar= document.querySelector(".side-bar"),
+discover= document.querySelector(".discover"), activeSongName= document.querySelector(".activeSongName"), musicSection = document.querySelector(".new"),
+searchResultSection = document.querySelector(".results"), searchSection = document.querySelector(".search"), search_form = document.querySelector(".search-form"),
+search_form2 = document.querySelector(".search-form2"), artistSection = document.querySelector(".grid-col-small"), sideBarSection = document.querySelector(".songs"),
+videoSection = document.querySelector(".active-video"), overlay = document.querySelector(".overlay"), artist_details = document.querySelector(".artiste-details"),
+artist_songs_section = document.querySelector(".artistOnlySongs"), section = document.querySelectorAll(".sect"), sectionB = document.querySelectorAll(".links li"),
+discoverBtn = document.querySelector(".discovr"), aboutBtn = document.querySelectorAll(".about"), aboutSection = document.querySelector(".about-section"),
+categories = document.querySelector(".categories"), waves = document.querySelector(".wave"), details = document.querySelector(".details"),
+icons = document.querySelector(".icons"), bar = document.querySelector(".bar"), volume = document.querySelector(".vol"), head = document.querySelector(".head"),
+artistImage = document.querySelector(".artist-img"), artistName = document.querySelector(".artistName"), paragraph1 = document.querySelector(".parag"),
+paragraph2 = document.querySelector(".paragh"), paragraph3 = document.querySelector(".paragraph"), team_heading = document.querySelector(".team-heading"),
+norm_heading = document.querySelector(".norm-heading"), contactSection = document.querySelector(".contact-sect"), contactBtn = document.querySelector(".contact"),
+mainVideo = document.querySelector(".video-screen"), discoverLink = document.querySelector(".discowr"), songsLink = document.querySelector(".musc"), video_menu_link = document.querySelector(".vido"),
+first = document.querySelector(".first"), second = document.querySelector(".second"), third = document.querySelector(".third");
 
-const movieSection = document.querySelector(".video-sect"),
-topMovieSection = document.querySelector(".top-video-sect"),
-video_links = document.querySelector(".video-links"),
-aboutUs = document.querySelector(".aboutUs");
-
-const music = document.querySelector(".music"),
-songs = document.querySelector(".songs"),
-top_image= document.querySelector(".playing"),
-songdetails= document.querySelector(".songdetails"),
-master_play= document.querySelector(".master-play");
-
-const side_bar= document.querySelector(".side-bar");
-const discover= document.querySelector(".discover");
-
-const activeSongName= document.querySelector(".activeSongName"),
-musicSection = document.querySelector(".new"),
-searchResultSection = document.querySelector(".results"),
-searchSection = document.querySelector(".search"),
-search_form = document.querySelector(".search-form"),
-search_form2 = document.querySelector(".search-form2"),
-artistSection = document.querySelector(".grid-col-small"),
-sideBarSection = document.querySelector(".songs"),
-videoSection = document.querySelector(".active-video"),
-overlay = document.querySelector(".overlay"),
-artist_details = document.querySelector(".artiste-details"),
-artist_songs_section = document.querySelector(".artistOnlySongs"),
-section = document.querySelectorAll(".sect"),
-sectionB = document.querySelectorAll(".links li");
-
-const discoverBtn = document.querySelector(".discovr"),
-aboutBtn = document.querySelectorAll(".about"),
-aboutSection = document.querySelector(".about-section"),
-categories = document.querySelector(".categories");
-
-const  waves = document.querySelector(".wave"),
-details = document.querySelector(".details"),
-icons = document.querySelector(".icons"),
-bar = document.querySelector(".bar"),
-volume = document.querySelector(".vol");
-
-const artistImage = document.querySelector(".artist-img"),
-artistName = document.querySelector(".artistName");
-
-const paragraph1 = document.querySelector(".parag"),
-paragraph2 = document.querySelector(".paragh"),
-paragraph3 = document.querySelector(".paragraph"),
-team_heading = document.querySelector(".team-heading"),
-norm_heading = document.querySelector(".norm-heading"),
-head = document.querySelector(".head");
-
-//All the html elements assigned to variables
-let title = document.querySelector("#title"),
-title1 = document.querySelector("#title1"),
-artist = document.querySelector("#artist"),
-artist1 = document.querySelector("#artist1"),
-artistIMG = document.querySelector(".artistIMG"),
-track_image = document.querySelector("#track_image"),
-active_image = document.querySelector(".active-img"),
-about_image = document.querySelector(".aboutArtist"),
-exit_icon = document.querySelector(".exit-icon"),
-exit_con = document.querySelector(".exit-con"),
-exit = document.querySelector(".exit");
-
-let index = 0,
-track = document.createElement("audio"),
-playbtn = document.getElementById("play"),
-prev = document.getElementById("prev"),
-next = document.getElementById("next"),
-wave = document.getElementsByClassName("wave")[0];
-
-let currentStart = document.getElementById("current-start"),
-currentEnd = document.getElementById("current-end"),
-seek = document.getElementById("seek"),
-bar2 = document.getElementById("bar2"),
-dot = document.getElementsByClassName("dot")[0];
-
-let vol_icon = document.getElementById("vol-icon"),
-vol = document.getElementById("vol"),
-vol_dot = document.getElementById("vol-dot"),
-vol_bar= document.getElementsByClassName("vol-bar")[0];
-
+let title = document.querySelector("#title"), title1 = document.querySelector("#title1"), artist = document.querySelector("#artist"),
+artist1 = document.querySelector("#artist1"), artistIMG = document.querySelector(".artistIMG"), track_image = document.querySelector("#track_image"),
+active_image = document.querySelector(".active-img"), about_image = document.querySelector(".aboutArtist"), exit_icon = document.querySelector(".exit-icon"),
+exit_con = document.querySelector(".exit-con"), exit = document.querySelector(".exit"), index = 0, track = document.createElement("audio"),
+playbtn = document.getElementById("play"), prev = document.getElementById("prev"), next = document.getElementById("next"), 
+wave = document.getElementsByClassName("wave")[0], currentStart = document.getElementById("current-start"),
+currentEnd = document.getElementById("current-end"), seek = document.getElementById("seek"), bar2 = document.getElementById("bar2"),
+dot = document.getElementsByClassName("dot")[0], vol_icon = document.getElementById("vol-icon"), vol = document.getElementById("vol"),
+vol_dot = document.getElementById("vol-dot"), vol_bar= document.getElementsByClassName("vol-bar")[0], artist2 = document.querySelector("#artist2");
 
 //DISCOVER link action controls
 discoverBtn.onclick = ()=> {
@@ -121,9 +60,6 @@ discoverBtn.onclick = ()=> {
   top_movie_cards.style.filter = "blur(0)";
   artist_cards.style.filter = "blur(0)";
 };
-
-const contactSection = document.querySelector(".contact-sect"),
-contactBtn = document.querySelector(".contact");
 
 //ABOUT link action controls
 aboutBtn.forEach((btn) => {
@@ -183,7 +119,7 @@ music.onclick=() =>{
   master_play.style.display = "flex";
   waves.style.display = "flex";
   track_image.style.display = "block";
-  details.style.display = "block";
+  details.style.display = "flex";
   icons.style.display = "block";
   currentStart.style.display = "block";
   bar.style.display = "block";
@@ -253,6 +189,7 @@ video.addEventListener("click", () => {
   artist_cards.style.display = "none";
   master_play.style.display = "none";
   top_container.style.display = "none";
+  //artist_details.style.display = "none";
   top_image.style.display = "none";
   songs.style.display = "none";
   nav.style.display = "none";
@@ -437,6 +374,10 @@ window.addEventListener("DOMContentLoaded", () => {
     load_track(index);
     track.play();
     playbtn.src = "images/icons/pause-fill.svg";
+    active_image.src = audioData[index].song_image;
+    artist1.innerHTML = artist2.innerHTML = audioData[index].artist_name;
+    title1.innerHTML = audioData[index].song_name;
+    artistIMG.src = audioData[index].about_image;
   };
 
   //Previous button setup
@@ -445,6 +386,10 @@ window.addEventListener("DOMContentLoaded", () => {
     load_track(index);
     track.play();
     playbtn.src = "images/icons/pause-fill.svg";
+    active_image.src = audioData[index].song_image;
+    artist1.innerHTML = artist2.innerHTML = audioData[index].artist_name;
+    title1.innerHTML = audioData[index].song_name;
+    artistIMG.src = audioData[index].about_image;
   };
 
   //Play button setup
@@ -474,7 +419,7 @@ window.addEventListener("DOMContentLoaded", () => {
       track_image.src = audioData[point].song_image;
       active_image.src = audioData[point].song_image;
       about_image.style.background = "url" + (audioData[point].song_image);
-      artist.innerHTML = artist1.innerHTML = audioData[point].artist_name;
+      artist.innerHTML = artist1.innerHTML = artist2.innerHTML = audioData[point].artist_name;
       title.innerHTML = title1.innerHTML = audioData[point].song_name;
       artistIMG.src = audioData[point].about_image;
     });
@@ -520,11 +465,7 @@ window.addEventListener("DOMContentLoaded", () => {
             track.play();
             wave.classList.add("active2");
             track_image.src = audioData[ind].song_image;
-            active_image.src = audioData[ind].song_image;
-            //artist.innerHTML = audioData[ind].artist_name;
-            //title.innerHTML = audioData[ind].song_name;
-
-            artist.innerHTML = artist1.innerHTML = audioData[ind].artist_name;
+            artist.innerHTML = artist1.innerHTML = artist2.innerHTML = audioData[ind].artist_name;
             title.innerHTML = title1.innerHTML = audioData[ind].song_name;  
             active_image.src = audioData[ind].song_image;
             artistIMG.src = audioData[ind].about_image;
@@ -558,7 +499,7 @@ window.addEventListener("DOMContentLoaded", () => {
         track.play();
         wave.classList.add("active2");
         track_image.src = hitsData[indix].song_image;
-        artist.innerHTML = artist1.innerHTML = hitsData[indix].artist_name;
+        artist.innerHTML = artist1.innerHTML = artist2.innerHTML = hitsData[indix].artist_name;
         active_image.src = hitsData[indix].song_image;
         about_image.style.background = "url" + (hitsData[indix].song_image);
         title.innerHTML = title1.innerHTML = hitsData[indix].song_name;
@@ -609,7 +550,7 @@ window.addEventListener("DOMContentLoaded", () => {
           track.play();
           wave.classList.add("active2");
           track_image.src = audioData[inix].song_image;
-          artist.innerHTML = artist1.innerHTML = audioData[inix].artist_name;
+          artist.innerHTML = artist1.innerHTML = artist2.innerHTML = audioData[inix].artist_name;
           title.innerHTML = title1.innerHTML = audioData[inix].song_name;  
           active_image.src = audioData[inix].song_image;
           artistIMG.src = audioData[inix].about_image;
@@ -619,14 +560,10 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-songdetails.addEventListener("click", () => {
-  master_play.classList.add("full-view");
-})
+songdetails.addEventListener("click", () =>master_play.classList.add("full-view"))
 
 //Popular Artist exit button setup
-exit.addEventListener("click", ()=>{
-  master_play.classList.remove("full-view");
-});
+exit.addEventListener("click", ()=>master_play.classList.remove("full-view"));
 
 //Popular Artist exit button setup
 exit_icon.addEventListener("click", ()=>{
@@ -667,9 +604,7 @@ track.addEventListener("timeupdate", () => {
   dot.style.left = `${seekbar}%`;
 });
 
-seek.addEventListener("change", () => {
-  track.currentTime = seek.value * track.duration/100;
-});
+seek.addEventListener("change", () =>track.currentTime = seek.value * track.duration/100);
 
 track.addEventListener("ended", () => {
   playbtn.src = "images/icons/play-fill.svg";
@@ -678,15 +613,9 @@ track.addEventListener("ended", () => {
 
 /*===Music volume Controls Setup===*/
 vol.addEventListener("change", () => {
-  if (vol.value == 0) {
-    vol_icon.src = "images/icons/volume-mute-fill.svg";
-  }
-  if (vol.value > 0) {
-    vol_icon.src = "images/icons/volume-down.svg";
-  }
-  if (vol.value > 50) {
-    vol_icon.src = "images/icons/volume-up-fill.svg";
-  }
+  if (vol.value == 0) {vol_icon.src = "images/icons/volume-mute-fill.svg";}
+  if (vol.value > 0) {vol_icon.src = "images/icons/volume-down.svg";}
+  if (vol.value > 50) {vol_icon.src = "images/icons/volume-up-fill.svg";}
 
   let vol_a = vol.value;
   vol_bar.style.width = `${vol_a}%`;
@@ -694,7 +623,6 @@ vol.addEventListener("change", () => {
   track.volume = vol_a/100;
 });
 
-const discoverLink = document.querySelector(".discowr");
 discoverLink.onclick = () => {
   master_play.classList.remove("full-view");
   discover.classList.add("discover-section");
@@ -702,7 +630,6 @@ discoverLink.onclick = () => {
   side_bar.style.padding = 0;
   songs.style.display = head.style.display = "none";
   nav.style.display = "none";
-
   movie_cards.style.display = "none";
   top_movie_cards.style.display = "none";
   music_cards.style.display = "block";
@@ -711,11 +638,10 @@ discoverLink.onclick = () => {
   top_container.style.display = "flex";
   master_play.style.display = "flex";
   search_form2.style.display = "flex";
-
+  discover.style.display = "flex";
   activeSongName.style.display = "none";
 };
 
-const songsLink = document.querySelector(".musc");
 songsLink.onclick = () => {
   side_bar.style.height = "100%";
   side_bar.style.padding = "70px 0 0 0";
@@ -723,15 +649,14 @@ songsLink.onclick = () => {
   discoverLink.classList.remove("active");
   discover.classList.remove("discover-section");
   search_form2.style.display = "none";
-
   master_play.classList.remove("full-view");
   master_play.style.display = "flex";
   side_bar.style.display = "block";
   nav.style.display = "flex";
   activeSongName.style.display = "flex";
+  artist_details.style.display = "none";
 };
 
-const video_menu_link = document.querySelector(".vido");
 video_menu_link.addEventListener("click", () => {
   track.pause();
   playbtn.src = "images/icons/play-fill.svg";
@@ -749,6 +674,7 @@ video_menu_link.addEventListener("click", () => {
   side_bar.style.height = 0;
   side_bar.style.padding = 0;
   songs.style.display = head.style.display = "none";
+  artist_details.style.display = "none";
 
   music_cards.style.display = "none";
   artist_cards.style.display = "none";
@@ -774,9 +700,6 @@ video_menu_link.addEventListener("click", () => {
   master_play.style.display = "none";
   discover.style.display = "flex";
 });
-
-const mainVideo = document.querySelector(".video-screen");
-const first = document.querySelector(".first"), second = document.querySelector(".second"), third = document.querySelector(".third");
 
 first.onclick = () => {
   first.classList.contains("half") ? first.classList.replace("half", "full") : first.classList.add("full");
